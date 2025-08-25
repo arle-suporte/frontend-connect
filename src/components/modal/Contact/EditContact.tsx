@@ -19,12 +19,20 @@ import { Label } from '@/components/ui/label';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { editContact } from '@/services/contact/edit-contact';
 
-export default function EditContactModal({
+
+interface editContactModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  contactData: any
+  onContactUpdated: () => void;
+}
+
+const EditContactModal: React.FC<editContactModalProps> = ({
   isOpen,
   onClose,
   contactData,
   onContactUpdated
-}) {
+}) => {
   const [formData, setFormData] = useState({
     uuid: '',
     nome: '',
@@ -64,7 +72,7 @@ export default function EditContactModal({
     }
   }, [isOpen]);
 
-  const handleInputChange = (field, value) => {
+  const handleInputChange = (field: any, value: any) => {
     setFormData(prev => ({
       ...prev,
       [field]: value
@@ -86,7 +94,7 @@ export default function EditContactModal({
     return true;
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     if (!validateForm()) return;
 
@@ -101,7 +109,7 @@ export default function EditContactModal({
       }
       setSuccess(true);
       onClose();
-    } catch (error) {
+    } catch (error: any) {
       setError(error.message || 'Erro ao atualizar contato. Tente novamente.');
     } finally {
       setIsLoading(false);
@@ -124,7 +132,7 @@ export default function EditContactModal({
     }
   };
 
-  const handlePhoneChange = (e) => {
+  const handlePhoneChange = (e: { target: { value: string; }; }) => {
     const formatted = formatPhone(e.target.value);
     handleInputChange('telefone', formatted);
   };
@@ -232,3 +240,5 @@ export default function EditContactModal({
     </Dialog>
   );
 }
+
+export default EditContactModal;

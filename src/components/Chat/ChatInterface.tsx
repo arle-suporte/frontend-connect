@@ -26,7 +26,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({
   onSendFileMessage,
   onSendAudioMessage,
 }) => {
-  const [newMessage, setNewMessage] = useState("");
+  const [newMessage, setNewMessage] = useState<string>("");
   const [showFinalizeModal, setShowFinalizeModal] = useState(false);
   const [showTransferModal, setShowTransferModal] = useState(false);
   const [showDismissModal, setShowDismissModal] = useState(false);

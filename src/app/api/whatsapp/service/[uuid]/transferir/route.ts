@@ -4,12 +4,12 @@ import { API_URL } from "@/lib/constants";
 
 export async function POST(
   request: NextRequest,
-  { params }: { params: { uuid: string } }
+  context: { params: Promise<{ uuid: string }> }
 ) {
   const { access, error } = await checkAuth();
   if (error) return error;
 
-  const { uuid } = await params;
+  const { uuid } = await context.params;
 
   const body = await request.json();
 

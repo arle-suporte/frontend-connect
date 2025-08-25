@@ -155,7 +155,8 @@ const ChatHeader: React.FC<ChatHeaderProps> = ({
       <SearchMessagesModal
         isOpen={isSearchModalOpen}
         onClose={handleCloseSearchModal}
-        contactId={contact.phone_number} // ou contact.uuid, dependendo de como você identifica o contato
+        contactId={contact.phone_number}
+        contactPhoneNumber={contact.phone_number}
         contactName={contact.name}
         contactPhoto={contact.photo}
       />

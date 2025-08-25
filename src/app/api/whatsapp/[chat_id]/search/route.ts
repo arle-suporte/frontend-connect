@@ -1,15 +1,16 @@
 import { checkAuth } from "@/utils/checkAuth";
 import { NextRequest, NextResponse } from "next/server";
 import { API_URL } from "@/lib/constants";
+import { Message } from "@/types/chat";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { chat_id: string } }
+  context: { params: Promise<{ chat_id: string }> }
 ) {
   const { access, error } = await checkAuth();
   if (error) return error;
 
-  const { chat_id } = await params;
+  const { chat_id } = await context.params;
   const { searchParams } = new URL(request.url);
   const query = searchParams.get("q");
 
@@ -67,7 +68,7 @@ export async function GET(
         if (service.messages && Array.isArray(service.messages)) {
           // Procura mensagens que contenham o termo de pesquisa
           const matchingMessages = service.messages.filter(
-            (message) =>
+            (message: Message) =>
               message.text &&
               message.text.toLowerCase().includes(query.toLowerCase())
           );

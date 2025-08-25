@@ -9,7 +9,7 @@ import { useAudioRecorder } from "@/hooks/use-audio";
 
 interface ChatInputProps {
   newMessage: string;
-  setNewMessage: (value: string) => void;
+  setNewMessage: React.Dispatch<React.SetStateAction<string>>;
   onSendMessage: () => void;
   onSendFileMessage: (file: File) => void;
   onSendMediaMessage: (file: File) => void;
@@ -64,8 +64,8 @@ const ChatInput: React.FC<ChatInputProps> = ({
     }
   }, [onSendAudioMessage]);
 
-  const handleEmojiClick = useCallback((emojiObject) => {
-    setNewMessage(prevMessage => prevMessage + emojiObject.emoji);
+  const handleEmojiClick = useCallback((emojiObject: any) => {
+    setNewMessage((prevMessage: string) => prevMessage + emojiObject.emoji);
     setShowEmojiPicker(false);
     inputRef.current?.focus();
   }, [setNewMessage]);
@@ -73,7 +73,7 @@ const ChatInput: React.FC<ChatInputProps> = ({
   // Hook de gravação
   const { recording, seconds, start, stop } = useAudioRecorder(onSendAudioMessage);
 
-  const handleKeyPress = useCallback((e) => {
+  const handleKeyPress = useCallback((e: any) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       onSendMessage();
@@ -124,7 +124,7 @@ const ChatInput: React.FC<ChatInputProps> = ({
   const handleStrikethrough = () => applyFormatting('~');
 
   // Auto-resize do textarea
-  const handleTextareaChange = useCallback((e) => {
+  const handleTextareaChange = useCallback((e: any) => {
     setNewMessage(e.target.value);
 
     // Auto-resize
@@ -178,7 +178,6 @@ const ChatInput: React.FC<ChatInputProps> = ({
             ref={audioInputRef}
             className="sr-only"
             accept="audio/*"
-            capture="microphone"
             onChange={handleFileUploadAudio}
           />
         </TooltipProvider>

@@ -13,7 +13,7 @@ interface SessionHeaderProps {
 
 interface ChatMessagesProps {
   organizedServices: any[];
-  messagesEndRef: React.RefObject<HTMLDivElement>;
+  messagesEndRef: any
   contact: ContactType;
 }
 

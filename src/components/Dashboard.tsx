@@ -12,6 +12,7 @@ const Dashboard = () => {
   const { user, loading } = useAuth();
 
   if (loading) return <div className="flex align-baseline justify-center"><Loader2 className="mr-2 h-4 w-4 animate-spin text-primary" /> </div>;
+  if (!user) return <div>Usuário não encontrado</div>;
 
   const topContacts = [
     { name: 'Isabelle - EBS Comercio e Se...', initials: 'I', count: 10 },

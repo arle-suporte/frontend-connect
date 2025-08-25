@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { User, UserCircle, Clock, CheckCircle, XCircle, Calendar, Contact, Play, Flag, MessageSquare, Info, Scroll } from 'lucide-react';
+import { User, UserCircle, Clock, CheckCircle, XCircle, Calendar, Contact, Play, Flag, MessageSquare, Info } from 'lucide-react';
 import { formatDateTime } from '@/utils/time';
 import { getStatusBgColor } from '@/utils/status';
 import { MessageBubble } from '@/components/Chat/MessageBubble';

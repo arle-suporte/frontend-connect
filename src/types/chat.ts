@@ -6,6 +6,7 @@ export interface Message {
   has_media: boolean;
   media_type: string;
   media_file: string;
+  file_name: string;
 }
 
 export interface ContactType {

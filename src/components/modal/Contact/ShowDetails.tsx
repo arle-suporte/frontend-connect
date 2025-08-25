@@ -5,7 +5,13 @@ import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Card, CardContent } from '@/components/ui/card';
 import { Phone, CheckCircle, XCircle, X } from 'lucide-react';
 
-const ContactDetailsModal = ({ isOpen, onClose, contactData }) => {
+interface contactDetailsProps {
+  isOpen: boolean;
+  onClose: () => void;
+  contactData: any
+}
+
+const ContactDetailsModal: React.FC<contactDetailsProps> = ({ isOpen, onClose, contactData }) => {
   if (!contactData) return null;
 
   const { nome, photo, telefone, is_deleted } = contactData;

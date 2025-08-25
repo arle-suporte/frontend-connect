@@ -49,6 +49,8 @@ export function DatePicker({ text }: DatePickerProps) {
           numberOfMonths={2}
           defaultMonth={new Date()}
           selected={date}
+          // @ts-ignore
+          // Ignorando pois não está sendo usado pra nada no momento.
           onSelect={setDate}
           locale={ptBR}
           className="text-xs"

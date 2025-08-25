@@ -4,6 +4,7 @@ import { createContext, useContext, useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 
 type User = {
+  name: string;
   uuid: string;
   email: string;
   nome: string;

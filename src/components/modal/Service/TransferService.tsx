@@ -27,6 +27,7 @@ interface TransferServiceModalProps {
   serviceUuid: string;
   contactName: string;
   onConfirm: (targetUserUuid: string) => void;
+  collaborators: string[]
 }
 
 const TransferServiceModal: React.FC<TransferServiceModalProps> = ({
@@ -35,6 +36,7 @@ const TransferServiceModal: React.FC<TransferServiceModalProps> = ({
   serviceUuid,
   contactName,
   onConfirm,
+  collaborators,
 }) => {
   const [users, setUsers] = useState<AuthUserOption[]>([]);
   const [selectedUuid, setSelectedUuid] = useState<string>("");

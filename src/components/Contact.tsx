@@ -192,7 +192,7 @@ export default function Contato(props: ContatoProps) {
     try {
       await syncContacts();
       await refetchContacts();
-    } catch (error) {
+    } catch (error: any) {
       alert(error.message);
     } finally {
       setIsImporting(false);
@@ -225,8 +225,8 @@ export default function Contato(props: ContatoProps) {
   const rowActionsItems = [
     { label: "Ver detalhes", action: "view" },
     { label: "Editar", action: "edit" },
-    { label: "Inativar", action: "inactivate", condition: (item) => !item.is_deleted },
-    { label: "Reativar", action: "reactivate", condition: (item) => item.is_deleted }
+    { label: "Inativar", action: "inactivate", condition: (item: { is_deleted: boolean; }) => !item.is_deleted },
+    { label: "Reativar", action: "reactivate", condition: (item: { is_deleted: boolean; }) => item.is_deleted }
   ];
 
   const handleRowAction = (action: any, item: any) => {

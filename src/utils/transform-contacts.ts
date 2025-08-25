@@ -1,4 +1,4 @@
-export const transformContactData = (apiContacts) => {
+export const transformContactData = (apiContacts: any[]) => {
   if (!Array.isArray(apiContacts)) return [];
 
   return apiContacts

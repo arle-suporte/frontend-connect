@@ -4,16 +4,14 @@ import { API_IP } from "@/lib/constants";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { slug: string[] } }
+  context: { params: Promise<{ slug: string[] }> }
 ) {
   const { access, error } = await checkAuth();
   if (error) return error;
 
-  const { slug } = await params;
-
+  const { slug } = await context.params;
   const mediaPath = slug.join("/");
   const backendUrl = `${API_IP}/${mediaPath}`;
-  console.log(`Fetching ${backendUrl}`);
 
   const res = await fetch(backendUrl, {
     headers: {

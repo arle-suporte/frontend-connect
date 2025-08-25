@@ -4,12 +4,12 @@ import { API_URL } from "@/lib/constants";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { chat_id: string } }
+  context: { params: Promise<{ chat_id: string }> }
 ) {
   const { access, error } = await checkAuth();
   if (error) return error;
 
-  const { chat_id } = await params;
+  const { chat_id } = await context.params;
 
   if (!chat_id) {
     return NextResponse.json(

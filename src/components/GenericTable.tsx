@@ -142,7 +142,7 @@ export default function GenericDataTable({
     }
   };
 
-  const renderCellContent = (item, column) => {
+  const renderCellContent = (item: any, column: any) => {
     const value = item[column.key];
 
     if (column.render) {
@@ -158,7 +158,7 @@ export default function GenericDataTable({
   };
 
   // Função para filtrar as ações baseada no item
-  const getFilteredRowActions = (item) => {
+  const getFilteredRowActions = (item: any) => {
     return rowActionsItems.filter(actionItem => {
       // Se a ação tem uma condição, verifica se deve ser exibida
       if (actionItem.condition) {
