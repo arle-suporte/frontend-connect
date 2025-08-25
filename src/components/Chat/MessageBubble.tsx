@@ -10,7 +10,7 @@ import { formatMessageText } from "@/utils/format-message";
 export const MessageBubble: React.FC<{ message: Message; contactName: string; contactPicture?: string, service: any }> = React.memo(({ message, contactName, contactPicture, service }) => {
   const mediaUrl = useMemo(() => {
     if (!message.has_media || !message.media_file) return undefined;
-    return `/api/proxy/${message.media_file.replace('http://127.0.0.1:8000/', '')}`;
+    return message.media_file;
   }, [message.has_media, message.media_file]);
 
   const formattedText = useMemo(() => {

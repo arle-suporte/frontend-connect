@@ -20,7 +20,7 @@ export const transformContactData = (apiContacts: any[]) => {
         photo: contact.photo,
         active: contact.active,
         client: contact.client,
-        is_deleted: contact.is_deleted ? 'Inativo' : 'Ativo'
+        is_deleted: contact.is_deleted
       };
     });
 };

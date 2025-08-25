@@ -178,11 +178,11 @@ export default function Contato(props: ContatoProps) {
       header: 'TELEFONE',
       cellClassName: 'whitespace-nowrap px-6 py-4 text-sm text-foreground'
     },
-    {
-      key: 'is_deleted',
-      header: 'STATUS',
-      cellClassName: 'whitespace-nowrap px-6 py-4 text-sm text-foreground'
-    }
+    // {
+    //   key: 'is_deleted',
+    //   header: 'STATUS',
+    //   cellClassName: 'whitespace-nowrap px-6 py-4 text-sm text-foreground'
+    // }
   ];
 
   const handleImportContacts = async () => {
