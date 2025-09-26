@@ -4,6 +4,7 @@ import { createWebSocket } from "@/utils/websocket/ws-client";
 import { fetchAccessToken } from "@/lib/auth-tokens";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
+import { WS_URL_CHAT } from "@/lib/constants";
 
 export function useChatSocket(contactId: string | null) {
   const [messages, setMessages] = useState<any[]>([]);
@@ -44,7 +45,7 @@ export function useChatSocket(contactId: string | null) {
         return;
       }
 
-      const baseUrl = "ws://localhost:8005/ws";
+      const baseUrl = `${WS_URL_CHAT}/ws`;
       const wsChatUrl = `${baseUrl}/chat/${encodeURIComponent(
         contactId
       )}/?token=${accessToken}`;

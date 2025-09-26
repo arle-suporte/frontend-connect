@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { createWebSocket } from "@/utils/websocket/ws-client";
 import { fetchAccessToken } from "@/lib/auth-tokens";
+import { WS_URL_CHAT } from "@/lib/constants";
 
 export function useGlobalSocket() {
   const [events, setEvents] = useState<any[]>([]);
@@ -20,7 +21,7 @@ export function useGlobalSocket() {
         return;
       }
 
-      const baseUrl = "ws://localhost:8005/ws";
+      const baseUrl = `${WS_URL_CHAT}/ws`;
       const wsUrl = `${baseUrl}/global/?token=${accessToken}`;
 
       disconnect = createWebSocket(
