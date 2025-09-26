@@ -19,6 +19,13 @@ export const metadata: Metadata = {
   description: "Connect by arle",
 };
 
+<link
+  rel="icon"
+  href="/icon?<generated>"
+  type="image/<generated>"
+  sizes="<generated>"
+/>
+
 export default function RootLayout({
   children,
 }: {
