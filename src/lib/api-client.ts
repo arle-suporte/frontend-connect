@@ -80,8 +80,6 @@ export async function authenticatedFetch(
 
     const refreshSuccess = await handleTokenRefresh();
 
-    console.log("refreshSuccess: fudeos", refreshSuccess);
-
     if (refreshSuccess) {
       return retryRequest;
     } else {

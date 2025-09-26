@@ -45,7 +45,7 @@ export function useChatSocket(contactId: string | null) {
         return;
       }
 
-      const baseUrl = `${WS_URL_CHAT}/ws`;
+      const baseUrl = WS_URL_CHAT
       const wsChatUrl = `${baseUrl}/chat/${encodeURIComponent(
         contactId
       )}/?token=${accessToken}`;
@@ -68,7 +68,6 @@ export function useChatSocket(contactId: string | null) {
           if (serviceData.contact_id !== contactId) {
             return;
           }
-          console.log(serviceData)
 
           const serviceId = serviceData.uuid || serviceData.service_id;
 

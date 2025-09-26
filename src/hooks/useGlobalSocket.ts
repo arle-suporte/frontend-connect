@@ -21,7 +21,7 @@ export function useGlobalSocket() {
         return;
       }
 
-      const baseUrl = `${WS_URL_CHAT}/ws`;
+      const baseUrl = WS_URL_CHAT
       const wsUrl = `${baseUrl}/global/?token=${accessToken}`;
 
       disconnect = createWebSocket(
