@@ -342,8 +342,8 @@ export default function GenericDataTable({
                   className="text-center py-8"
                 >
                   <div className="flex items-center justify-center space-x-2">
-                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-gray-900"></div>
-                    <span className="text-sm text-gray-500">Carregando...</span>
+                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-muted-foreground"></div>
+                    <span className="text-sm text-muted-foreground">Carregando...</span>
                   </div>
                 </TableCell>
               </TableRow>
